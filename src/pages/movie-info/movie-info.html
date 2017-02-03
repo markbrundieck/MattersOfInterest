@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Movie Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="home" padding>
+	<div *ngIf="movie" >
+		<ion-card>
+			<ion-item>
+				<ion-avatar item-left image-Large>
+					<img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}"/>
+				</ion-avatar>
+					<h1>{{movie.title}}</h1>
+					<p>{{movie.release_date}}</p>
+			</ion-item>
+
+			<ion-item>
+				<h2>Overview</h2>
+				<p class="item-description">{{movie.overview}}</p>
+			</ion-item>   
+		</ion-card>
+	</div>
+</ion-content>

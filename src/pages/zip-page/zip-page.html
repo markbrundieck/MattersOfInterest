@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar>
+     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Zip City Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div class="bar bar-header bar-stable">
+  <h2 class="title">Search by City</h2>
+</div>
+<div >
+  <label class="item item-input">
+    <span class="input-label">City</span>
+    <input type="text" id="txtCity"  [(ngModel)]="cityEntry"/>
+  </label>
+  <label class="item item-input">
+    <span class="input-label">State Abbr.</span>
+    <input type="text" id="txtState" [(ngModel)]="stateEntry" />
+  </label>
+
+</div>
+<br/>
+<button ion-button (click)="citySearch(txtCity,txtState)">
+  City Search
+</button>
+<br/>
+<div class="bar bar-header bar-stable">
+  <h2 class="title">Search by Zip Code</h2>
+</div>
+ <form >
+<div >
+  <label class="item item-input">
+    <span class="input-label">Zip code</span>
+    <ion-input type="text" name="txtZip" id="txtZip"
+    [(ngModel)]="zipEntry" ></ion-input>
+  </label>  
+</div>
+<br/>
+<button ion-button (click)="zipSearch()">
+  Zip Search
+</button>
+ <br/>
+<ion-list >	
+  <template *ngIf="matchingRecords">
+		<ion-item  *ngFor="let eachItem of matchingRecords" >
+			<p class="item-description">{{eachItem.zip}}</p>
+			<p class="item-description">{{eachItem.state}}</p>
+		</ion-item>
+  </template>
+</ion-list>
+ <br/>
+<ion-list >	
+  <template *ngIf="zipRecords">
+		<ion-item  *ngFor="let eachZip of zipRecords" >
+			<p class="item-description">{{eachZip.zip}}</p>
+			<p class="item-description">{{eachZip.City}}</p>
+		</ion-item>
+  </template>
+</ion-list>
+ </form>
+
+</ion-content>
