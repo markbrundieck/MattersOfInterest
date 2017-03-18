@@ -4,8 +4,9 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Page1 } from '../pages/page1/page1';
 import { MovieSearchPage } from '../pages/movie-search/movie-search';
 import { QuotesPage } from '../pages/quotes/quotes';
-import { ZipPage } from '../pages/zip-page/zip-page';
-
+/*import { ZipPage } from '../pages/zip-page/zip-page';
+import { ZipSearchPage } from '../pages/zip-search/zip-search';*/
+import { ZipTabsPage } from '../pages/zip-tabs/zip-tabs';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,10 +24,9 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Page1 },
-
       { title: 'Movie Search', component: MovieSearchPage },
       { title: 'Quotes of Interest', component: QuotesPage },
-      { title: 'Zip or City Search', component: ZipPage }
+      { title: 'City Zip Lookup', component: ZipTabsPage }
     ];
 
   }

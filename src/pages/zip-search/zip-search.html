@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Location data by Zip</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+ <form >
+<div >
+<label class="item item-input">Enter Zip code
+  <i class="icon ion-search placeholder-icon"></i>
+  <input type="search" placeholder="Numeric Zip Code" [(ngModel)]="zipEntry" name="txtZip" id="txtZip">
+</label>
+<br/>
+<!--  <ion-label >Enter Zip code</ion-label>
+    <ion-input class="item item-input" type="text" name="txtZip" id="txtZip"
+    [(ngModel)]="zipEntry" type="number" ></ion-input>-->
+  <button ion-button (click)="zipSearch()">
+  Zip Search
+</button>
+</div>
+<br/>
+<div  *ngIf="stateResult">
+  <label class="ion-header">List of matching Cities in the state of {{stateResult}}</label>
+<ion-list >
+  <ion-item *ngFor="let cityItem of cityNames" >
+    <a target="_blank" href="http://maps.google.com/?q={{cityItem}},%20{{stateResult}},%20{{zipEntry}}">{{cityItem}}</a>
+  </ion-item>
+</ion-list >
+</div>
+<br/>
+ </form>
+</ion-content>
